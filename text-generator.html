@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Text Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f4f4f4;
+    }
+    textarea, select, input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    button {
+      background-color: #0078D7;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    #output {
+      margin-top: 20px;
+      padding: 20px;
+      background-color: yellow;
+      font-size: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Dynamic Text Generator</h1>
+  <p>Enter your text and customize its appearance below:</p>
+
+  <label for="textInput">Enter Your Text:</label>
+  <textarea id="textInput" rows="3" placeholder="Type something..."></textarea>
+
+  <label for="fontSize">Font Size:</label>
+  <select id="fontSize">
+    <option value="16px">Small</option>
+    <option value="24px">Medium</option>
+    <option value="32px">Large</option>
+    <option value="40px">Extra Large</option>
+  </select>
+
+  <label for="textColor">Text Color:</label>
+  <input type="text" id="textColor" placeholder="e.g. blue, red, green">
+
+  <label for="bgColor">Background Color:</label>
+  <input type="text" id="bgColor" placeholder="e.g. yellow, pink, gray">
+
+  <button onclick="generate()">Generate</button>
+
+  <div id="output"></div>
+
+  <script>
+    function generate() {
+      const text = document.getElementById('textInput').value;
+      const fontSize = document.getElementById('fontSize').value;
+      const textColor = document.getElementById('textColor').value || 'black';
+      const bgColor = document.getElementById('bgColor').value || 'white';
+      
+      const output = document.getElementById('output');
+      output.textContent = text;
+      output.style.fontSize = fontSize;
+      output.style.color = textColor;
+      output.style.backgroundColor = bgColor;
+    }
+  </script>
+</body>
+</html>
